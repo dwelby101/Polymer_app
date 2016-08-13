@@ -74,19 +74,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu class="app-menu" attr-for-selected="data-route" selected="[[route]]">
-          <a data-route="home" href="{{baseUrl}}">
+          <a data-route="page_1" href="{{baseUrl}}">
             <iron-icon icon="home"></iron-icon>
-            <span>Home</span>
+            <span>page_1</span>
           </a>
 
-          <a data-route="users" href="{{baseUrl}}users">
+          <a data-route="page_2" href="{{baseUrl}}page_2">
             <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
+            <span>page_2</span>
           </a>
 
-          <a data-route="contact" href="{{baseUrl}}contact">
+          <a data-route="page_3" href="{{baseUrl}}page_3">
             <iron-icon icon="mail"></iron-icon>
-            <span>Contact</span>
+            <span>page_3</span>
           </a>
         </paper-menu>
       </paper-scroll-header-panel>
@@ -94,6 +94,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <!-- Main Area -->
       <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
 
+
+<!--===========================================================================================================------Header-------->
         <!-- Main Toolbar -->
         <paper-toolbar id="mainToolbar" class="tall">
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
@@ -115,32 +117,132 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-<!-- Page HOME -->
-            <section data-route="home">
+<!--===========================================================================================================------ Page HOME -->
+            <section data-route="page_1">
               <paper-material elevation="1">
+
+<p>This is a list of different polymer components that ill be playing with to see what they can do and how they can be put together to create meaningful UI</p>
+
+                <!--
                 <my-greeting class="focus-target" tabindex="-1"></my-greeting>
 
                 <p class="subhead">You now have:</p>
                 <my-list></my-list>
 
                 <p>Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
+              -->
+              </paper-material>
+
+              <paper-material elevation="1">
+                <p>Badges applied to buttons -- icons not showing correctly!</p>
+                <paper-icon-button id="number" icon="communication:email" alt="inbox">
+                </paper-icon-button>
+                <paper-badge for="number" label="4">
+                </paper-badge>
+
+                <paper-icon-button id="icon" icon="account-box" alt="person">
+                </paper-icon-button>
+                <paper-badge icon="social:mood" for="icon" label="happy">
+                </paper-badge>
+
+              </paper-material>
+
+              <paper-material elevation="1">
+                <p>paper-checkbox</p>
+                <paper-checkbox>Checkbox</paper-checkbox>
+                <paper-checkbox checked>Checkbox</paper-checkbox>
+                <paper-checkbox disabled>Disabled</paper-checkbox>
               </paper-material>
 
               <paper-material elevation="1">
                 <p>Placeholder card for testing out material components</p>
-              </paper-material>
 
-              <paper-material elevation="1">
-                <p>Placeholder card for testing out material components</p>
-              </paper-material>
+                <paper-button raised onclick="dialog.open()">plain dialog</paper-button>
+                <paper-button raised onclick="modal.open()">modal dialog</paper-button>
+                <paper-button raised onclick="scrolling.open()">scrolling dialog</paper-button>
+                <paper-button raised onclick="actions.open()">dialog with actions</paper-button>
+                <paper-button raised onclick="dropdownDialog.open()">dialog with dropdown</paper-button>
+                <paper-button raised onclick="nested.open()">dialog with nested dialog</paper-button>
 
-              <paper-material elevation="1">
-                <p>Placeholder card for testing out material components</p>
+                <paper-dialog id="dialog">
+                  <h2>Dialog Title</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </paper-dialog>
+
+                <paper-dialog id="scrolling">
+                  <h2>Scrolling</h2>
+                  <paper-dialog-scrollable>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                      irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  </paper-dialog-scrollable>
+                  <div class="buttons">
+                    <paper-button dialog-dismiss>Cancel</paper-button>
+                    <paper-button dialog-confirm autofocus>OK</paper-button>
+                  </div>
+                </paper-dialog>
+
+                <paper-dialog id="actions">
+                  <h2>Dialog Title</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <div class="buttons">
+                    <paper-button>More Info...</paper-button>
+                    <paper-button dialog-dismiss>Decline</paper-button>
+                    <paper-button dialog-confirm autofocus>Accept</paper-button>
+                  </div>
+                </paper-dialog>
+
+                <paper-dialog id="modal" modal>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  <div class="buttons">
+                    <paper-button dialog-confirm autofocus>Tap me to close</paper-button>
+                  </div>
+                </paper-dialog>
+
+                <paper-dialog id="dropdownDialog">
+                  <h2>Dialog Title</h2>
+                  <paper-dropdown-menu label="Value">
+                    <paper-menu class="dropdown-content">
+                      <paper-item>1</paper-item>
+                      <paper-item>2</paper-item>
+                      <paper-item>3</paper-item>
+                    </paper-menu>
+                  </paper-dropdown-menu>
+                </paper-dialog>
+
+                <paper-dialog id="nested">
+                  <h2>Dialog Title</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                  <div class="buttons">
+                    <paper-button onclick="innerDialog.open()">Open nested dialog</paper-button>
+                  </div>
+                </paper-dialog>
+
+                <paper-dialog id="innerDialog">
+                  <h2>Dialog Title</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </paper-dialog>
               </paper-material>
 
             </section>
-<!-- Page 1 -->
-            <section data-route="users">
+<!--===========================================================================================================------ Page 1 -->
+            <section data-route="page_1">
               <paper-material elevation="1">
                 <h1 class="page-title focus-target" tabindex="-1">Users</h1>
                 <p>This is the users section</p>
@@ -150,15 +252,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <a href$="{{baseUrl}}users/Sam">Sam</a>
               </paper-material>
             </section>
-<!-- Page 2 -->
-            <section data-route="user-info">
+<!-- ===========================================================================================================------Page 2 -->
+            <section data-route="page_2">
               <paper-material elevation="1">
                 <h1 class="page-title focus-target" tabindex="-1">User: {{params.name}}</h1>
                 <div>This is {{params.name}}'s section</div>
               </paper-material>
             </section>
-<!-- Page 3 -->
-            <section data-route="contact">
+<!-- ===========================================================================================================------Page 3 -->
+            <section data-route="page_3">
               <paper-material elevation="1">
                 <h1 class="page-title focus-target" tabindex="-1">Contact</h1>
                 <p>This is the contact section</p>

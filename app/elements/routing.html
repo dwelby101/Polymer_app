@@ -44,28 +44,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     });
 
     page('/', function() {
-      app.route = 'home';
+      app.route = 'page_1';
       setFocus(app.route);
     });
 
     page(app.baseUrl, function() {
-      app.route = 'home';
+      app.route = 'page_1';
       setFocus(app.route);
     });
 
-    page('/users', function() {
-      app.route = 'users';
+    page('/page_2', function() {
+      app.route = 'page_2';
       setFocus(app.route);
     });
 
-    page('/users/:name', function(data) {
+    page('/page_2/:name', function(data) {
       app.route = 'user-info';
       app.params = data.params;
       setFocus(app.route);
     });
 
-    page('/contact', function() {
-      app.route = 'contact';
+    page('/page_3', function() {
+      app.route = 'page_3';
       setFocus(app.route);
     });
 
