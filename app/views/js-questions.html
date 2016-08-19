@@ -1,0 +1,61 @@
+
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/iron-collapse/iron-collapse.html">
+<link rel="import" href="../../bower_components/iron-icons/iron-icons.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-card/paper-card.html">
+
+
+<dom-module id="js-questions">
+  <!-- Defines the element's style and local DOM -->
+  <template>
+    <style>
+      :host {
+        display: block;
+        padding: 16px;
+      }
+    </style>
+    
+    <h1 class="page-title">JS Questions</h1>
+    <p>Suus satis. Quod etiam optime. Vos ite post eum, fistulae, nunquam vivum exire ab ea. Sed cum hoc ... excidit tibi in cibo aut in potu, aut: olefac Elegantioris non sit ... triginta sex horae post ... Poof. Vir aetatis operantes, dura sicut facit ... nemo mirabatur. Mike suspectas habere possunt, sed quod omnes illi eris. Obsecro, unum homicidam maniaco tempore. 
+
+      Ecce dabo Pinkman Isai OK? Sicut locutus est tibi, et datus est, et hic sine Semper consequat volumus ... et ille in urbe ista licet? Et infernus, ubi tu non Virginiae ornare vel ipsum. Ut enim Albuquerque et ille eum iure hic, et ego ducam te ad iustitiam. Quid dicis? 
+
+      At nolo de me ipso turpis. Ut nullam curae. Scis quid mihi quod infernum sit amet nunc magis animum, nunc eros eget quam cogitatione emptio damnat. Purus? Sic, si fieri justi ... amabo. 
+
+      Prohibere. Striga! Ut custodiant te sermonem dicens - periculi ... periculo! Non ego illud numquam. Dixi sunt implicatae. Elatus deinde manubrio! </p>
+    
+    <paper-card heading="Question 1" class="white">
+      <div class="card-content">1,000 miles of wonder</div>
+      <div class="card-actions">
+        <paper-button>Share</paper-button>
+        <paper-button>Explore</paper-button>
+        <paper-icon-button icon="hardware:keyboard-arrow-up" title="more info" onclick="_toggle()" style="float:right;">
+        </paper-icon-button>
+        <iron-collapse id="more-info" style="width:100%;">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent enim ante, tempus eget volutpat ac, cursus ac ante. Nulla facilisi. Praesent sed lacinia ligula. Donec malesuada nisl eget quam iaculis, vel placerat justo cursus.
+        </iron-collapse>
+      </div>
+    </paper-card>
+  </template>
+
+  <!-- Creates the element's prototype and registers it -->
+  <script>
+    Polymer({
+      is: 'js-questions',
+      properties: {
+        route: Object
+      }
+    });
+    
+    function _toggle() {
+      var moreInfo = document.getElementById('more-info');
+      var iconButton = Polymer.dom(event).localTarget;
+      iconButton.icon = moreInfo.opened ? 'hardware:keyboard-arrow-up'
+                                        : 'hardware:keyboard-arrow-down';
+      moreInfo.toggle();
+    }
+  </script>
+</dom-module>

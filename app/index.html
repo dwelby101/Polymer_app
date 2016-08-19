@@ -84,9 +84,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <span>page_2</span>
           </a>
 
-          <a data-route="page_3" href="{{baseUrl}}page_3">
-            <iron-icon icon="mail"></iron-icon>
-            <span>page_3</span>
+          <a data-route="js_questions" href="{{baseUrl}}js_questions">
+            <iron-icon icon="help-outline"></iron-icon>
+            <span>JS Test Questions</span>
           </a>
         </paper-menu>
       </paper-scroll-header-panel>
@@ -104,7 +104,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application name -->
           <div class="middle middle-container">
-            <div class="app-name">My Polymer experiments</div>
+            <div class="app-name">{{route}}</div>
           </div>
 
           <!-- Application sub title -->
@@ -115,14 +115,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Main Content -->
         <div class="content">
+          
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
 <!--===========================================================================================================------ Page HOME -->
             <section data-route="page_1">
               <paper-material elevation="1">
-
-<p>This is a list of different polymer components that ill be playing with to see what they can do and how they can be put together to create meaningful UI</p>
-
+                <p>This is a list of different polymer components that ill be playing with to see what they can do and how they can be put together to create meaningful UI</p>
                 <!--
                 <my-greeting class="focus-target" tabindex="-1"></my-greeting>
 
@@ -275,11 +274,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 <!-- ===========================================================================================================------Page 3 -->
-            <section data-route="page_3">
-              <paper-material elevation="1">
-                <h1 class="page-title focus-target" tabindex="-1">Contact</h1>
-                <p>This is the contact section</p>
-              </paper-material>
+            <section data-route="js_questions">
+              <js-questions></js-questions>
             </section>
 
 
