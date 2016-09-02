@@ -38,8 +38,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- Tile icon for Win8 (144x144) -->
   <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
 
-
-
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild-->
@@ -115,7 +113,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Main Content -->
         <div class="content">
-          
+
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
 <!--===========================================================================================================------ Page HOME -->
@@ -239,19 +237,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <!--====================-->
               <paper-material elevation="1">
                 <h3>Dialog Title</h3>
-              
-              </paper-material>  
-<!--====================-->
-              <paper-material elevation="1">
-                
+
               </paper-material>
 <!--====================-->
               <paper-material elevation="1">
-                
+
               </paper-material>
 <!--====================-->
               <paper-material elevation="1">
-                
+
+              </paper-material>
+<!--====================-->
+              <paper-material elevation="1">
+
               </paper-material>
 
             </section>
@@ -275,10 +273,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </section>
 <!-- ===========================================================================================================------Page 3 -->
             <section data-route="js_questions">
-              <js-questions></js-questions>
+              <js-questions class="focus-target" tabindex="-1"></js-questions>
             </section>
-
-
           </iron-pages>
         </div>
       </paper-scroll-header-panel>
