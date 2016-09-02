@@ -7,6 +7,7 @@
 <link rel="import" href="../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/juicy-html/juicy-html.html">
 
 <dom-module id="js-questions">
   <!-- Defines the element's style and local DOM -->
@@ -26,36 +27,32 @@
     <h1>JS Questions</h1>
 
     <p>Suus satis. Quod etiam optime. Vos ite post eum, fistulae, nunquam vivum exire ab ea. Sed cum hoc ... excidit tibi in cibo aut in potu, aut: olefac Elegantioris non sit ... triginta sex horae post ... Poof. Vir aetatis operantes, dura sicut facit ... nemo mirabatur. Mike suspectas habere possunt, sed quod omnes illi eris. Obsecro, unum homicidam maniaco tempore.
-
       Ecce dabo Pinkman Isai OK? Sicut locutus est tibi, et datus est, et hic sine Semper consequat volumus ... et ille in urbe ista licet? Et infernus, ubi tu non Virginiae ornare vel ipsum. Ut enim Albuquerque et ille eum iure hic, et ego ducam te ad iustitiam. Quid dicis?
-
       At nolo de me ipso turpis. Ut nullam curae. Scis quid mihi quod infernum sit amet nunc magis animum, nunc eros eget quam cogitatione emptio damnat. Purus? Sic, si fieri justi ... amabo.
-
       Prohibere. Striga! Ut custodiant te sermonem dicens - periculi ... periculo! Non ego illud numquam. Dixi sunt implicatae. Elatus deinde manubrio! </p>
-      <iron-ajax auto
-            url="../../data/questions.json"
-            handle-as="json"
-            on-response="taskLoaded">
-      </iron-ajax>
 
-    <template is="dom-repeat" items="{{questions}}" >
+    <iron-ajax auto
+          url="questions.json"
+          handle-as="json"
+          last-response="{{taskLoaded}}">
+    </iron-ajax>
+
+    <template is="dom-repeat" items="{{taskLoaded.questions}}" >
 
       <paper-card heading="Question {{index}}" class="white test">
 
         <div class="card-content">
           <div># <span>{{index}}</span></div>
-          <!--QUESTION-->
           {{item.question}}
         </div>
 
         <div class="card-actions">
           <!--<paper-button>Explore</paper-button> potentil link to a plunker-->
-          <paper-button on-click="toggleSelection">Show</paper-button>
-          <!--<paper-icon-button icon="hardware:keyboard-arrow-up" title="more info" onclick="_toggle()" style="float:right;">-
-          </paper-icon-button>-->
-          <iron-collapse id="more-info{{index}}" style="max-width:100%;">
-            <!--ANSWER-->
-            {{item.answer}}
+          <paper-button id={{index}} on-click="toggle">Show {{index}}</paper-button>
+          <!--<paper-icon-button icon="hardware:keyboard-arrow-up" title="more info" onclick="toggleSelection" style="float:right;">-</paper-icon-button>-->
+          <iron-collapse id="moreinfo{{index}}" style="max-width:100%;">
+            <template is="juicy-html" content="{{item.answer}}"></template>
+            stuff
           </iron-collapse>
         </div>
 
@@ -67,52 +64,16 @@
 
   <!-- Creates the element's prototype and registers it -->
   <script>
-
     Polymer({
       is: 'js-questions',
       ready: function() {
-console.log('before the questions');
-
-        /*this.questions = [
-          {
-            'question': 'What is a potential pitfall with using typeof bar === "object" to determine if bar is an object? How can this pitfall be avoided?',
-            'answer': '<div><p>Although <code>typeof bar === "object"</code> <em>is</em> a reliable way of checking if <code>bar</code> is an object, the surprising gotcha in JavaScript is that <code>null</code> is <em>also</em> considered an object!</p><p>Therefore, the following code will, to the surprise of most developers, log <code>true</code> (not <code>false</code>) to the console:</p><pre><code>var bar = null;console.log(typeof bar === "object");  // logs true!</code></pre><p>As long as one is aware of this, the problem can easily be avoided by also checking if <code>bar</code> is <code>null</code>:</p><pre><code>console.log((bar !== null) &amp;&amp; (typeof bar === "object"));  // logs false</code></pre><p>To be entirely thorough in our answer, there are two other things worth noting:</p><p>First, the above solution will return <code>false</code> if <code>bar</code> is a function.  In most cases, this is the desired behavior, but in situations where you want to also return <code>true</code> for functions, you could amend the above solution to be:</p><pre><code>console.log((bar !== null) &amp;&amp; ((typeof bar === "object") || (typeof bar === "function")));</code></pre><p>Second, the above solution will return <code>true</code> if <code>bar</code> is an array (e.g., if <code>var bar = [];</code>).  In most cases, this is the desired behavior, since arrays are indeed objects, but in situations where you want to also <code>false</code> for arrays, you could amend the above solution to be:</p>           <pre><code>console.log((bar !== null) &amp;&amp; (typeof bar === "object") &amp;&amp; (toString.call(bar) !== "[object Array]"));              </code></pre>              <p>Or, if you’re using jQuery:</p>              <pre><code>console.log((bar !== null) &amp;&amp; (typeof bar === "object") &amp;&amp; (! $.isArray(bar)));              </code></pre> </div>'
-          },
-          {
-            'question': 'test question 2',
-            'answer': 'test answer 2'
-          }
-        ];*/
-//console.log('after the questions', this.questions);
       },
       properties: {
-        route: Object,
-        questions: {
-          type: Array
-        }
+        route: Object
       },
-      toggleSelection: function(e) {
-        var moreInfo = e.model._nodes[4];
-         var iconButton = Polymer.dom(event).localTarget;
-         iconButton.icon = moreInfo.opened ? 'hardware:keyboard-arrow-up'
-                                           : 'hardware:keyboard-arrow-down';
-         moreInfo.toggle();
-      },
-      taskLoaded: function(data) {
-        this.questions = data.detail.response
-        console.log('in taskLoaded data = ', data.detail.response);
+      toggle: function (e){
+        document.querySelector('#moreinfo'+e.model.index).toggle();
       }
     });
-
-    //window.addEventListener('WebComponentsReady', function() {
-      //check if were on the page wee want
-      //if(app.route === 'js_questions'){
-        //console.log('were on the questions page');
-        //var questions = questions.json;
-        //console.log('questions = ', questions);
-      //}
-//console.log('the questions page is ready to go!', app.route);
-    //});
-
   </script>
 </dom-module>

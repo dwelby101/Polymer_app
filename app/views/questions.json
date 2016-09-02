@@ -1,0 +1,15 @@
+{
+  "questions": [
+    {
+      "index": 1,
+      "question": "What is a potential pitfall with using typeof bar === 'object' to determine if bar is an object? How can this pitfall be avoided?",
+      "answer": "<div>\n <p>Although <code>typeof bar === \"object\"</code> <em>is</em> a reliable way of checking if <code>bar</code> is an object, the surprising gotcha in JavaScript is that <code>null</code> is <em>also</em> considered an object!</p>\n        <p>Therefore, the following code will, to the surprise of most developers, log <code>true</code> (not <code>false</code>) to the console:</p>\n        <pre><code>var bar = null;\n        console.log(typeof bar === \"object\");  // logs true!\n        </code></pre>\n        <p>As long as one is aware of this, the problem can easily be avoided by also checking if <code>bar</code> is <code>null</code>:</p>\n        <pre><code>console.log((bar !== null) &amp;&amp; (typeof bar === \"object\"));  // logs false\n        </code></pre>\n        <p>To be entirely thorough in our answer, there are two other things worth noting:</p>\n        <p>First, the above solution will return <code>false</code> if <code>bar</code> is a function.  In most cases, this is the desired behavior, but in situations where you want to also return <code>true</code> for functions, you could amend the above solution to be:</p>\n        <pre><code>console.log((bar !== null) &amp;&amp; ((typeof bar === \"object\") || (typeof bar === \"function\")));\n        </code></pre>\n        <p>Second, the above solution will return <code>true</code> if <code>bar</code> is an array (e.g., if <code>var bar = [];</code>).  In most cases, this is the desired behavior, since arrays are indeed objects, but in situations where you want to also <code>false</code> for arrays, you could amend the above solution to be:</p>\n        <pre><code>console.log((bar !== null) &amp;&amp; (typeof bar === \"object\") &amp;&amp; (toString.call(bar) !== \"[object Array]\"));\n        </code></pre>\n        <p>Or, if you’re using jQuery:</p>\n        <pre><code>console.log((bar !== null) &amp;&amp; (typeof bar === \"object\") &amp;&amp; (! $.isArray(bar)));\n        </code></pre>\n        </div>"
+    },
+    {
+      "index": 2,
+      "question": "test question 2",
+      "answer": "test answer 2"
+    }
+  ],
+  "test": "test string"
+}
